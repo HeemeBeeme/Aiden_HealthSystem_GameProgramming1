@@ -20,6 +20,7 @@ namespace Aiden_HealthSystem_GameProgramming1
         static int level = 1;
         static int xpForLevel = 100;
 
+        // health, shield, damage, lives
         #region Requirements
         static void ShowHUD()
         {
@@ -139,6 +140,7 @@ namespace Aiden_HealthSystem_GameProgramming1
         }
         #endregion
 
+        //xp and level
         #region Extra Mile
 
         static void IncreaseXP(int exp)
@@ -157,6 +159,7 @@ namespace Aiden_HealthSystem_GameProgramming1
 
         #endregion
 
+        //unit test code
         #region Unit Test
         static void UnitTestHealthSystem()
         {
@@ -338,6 +341,16 @@ namespace Aiden_HealthSystem_GameProgramming1
 
         #endregion
 
+        static void ResetGame()
+        {
+            health = 100;
+            shield = 100;
+            lives = 3;
+            xp = 0;
+            level = 1;
+            xpForLevel = 100 * level;
+        }
+
 
         static void Main(string[] args)
         {
@@ -345,6 +358,31 @@ namespace Aiden_HealthSystem_GameProgramming1
             UnitTestXPSystem();
             Console.ReadKey(false);
 
+            ResetGame();
+            ShowHUD();
+            Console.ReadKey(false);
+            Console.Clear();
+
+            TakeDamage(199);
+            ShowHUD();
+            Console.ReadKey(false);
+            Console.Clear();
+
+            Heal(86);
+            RegenerateShield(74);
+            ShowHUD();
+            Console.ReadKey(false);
+            Console.Clear();
+
+            TakeDamage(161);
+            ShowHUD();
+            Console.ReadKey(false);
+            Console.Clear();
+
+            Revive();
+            ShowHUD();
+            Console.ReadKey(false);
+            Console.Clear();
         }
     }
 }
